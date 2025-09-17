@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mooie Snelle Pagina</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; /* deep navy */
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent1:linear-gradient(135deg,#7c3aed,#06b6d4);
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.12), transparent),
+                  radial-gradient(1000px 500px at 90% 90%, rgba(6,182,212,0.06), transparent),
+                  var(--bg);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:32px;
+    }
+
+    .container{max-width:1100px;margin:0 auto}
+
+    header{
+      display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;
+    }
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:48px;height:48px;border-radius:12px;background:var(--accent1);display:inline-grid;place-items:center;font-weight:800;color:white;box-shadow:0 6px 18px rgba(2,6,23,0.6)
+    }
+    nav{display:flex;gap:12px;align-items:center}
+    .btn{background:var(--glass);border:1px solid rgba(255,255,255,0.04);padding:8px 12px;border-radius:10px;font-weight:600;cursor:pointer}
+
+    .hero{
+      display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start;margin-bottom:28px
+    }
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:var(--radius);padding:28px;box-shadow:0 6px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+
+    h1{margin:0 0 8px 0;font-size:28px}
+    p.lead{margin:0;color:var(--muted)}
+
+    .feature-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .feature{background:rgba(255,255,255,0.02);padding:14px;border-radius:12px}
+    .feature h4{margin:0 0 6px 0;font-size:14px}
+    .feature p{margin:0;color:var(--muted);font-size:13px}
+
+    .card-aside{position:relative}
+    .card-aside .preview{height:320px;background:linear-gradient(135deg,#071129,rgba(255,255,255,0.02));border-radius:10px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+    .preview .big{font-size:28px;font-weight:700}
+    .preview small{color:var(--muted)}
+
+    footer{margin-top:28px;display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:14px}
+
+    /* responsiveness */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .feature-list{grid-template-columns:repeat(2,1fr)}
+      .card-aside .preview{height:220px}
+    }
+    @media (max-width:480px){
+      body{padding:16px}
+      .feature-list{grid-template-columns:1fr}
+      .logo{width:40px;height:40px}
+      h1{font-size:22px}
+    }
+
+    /* subtle interactive touches */
+    .btn-primary{background:var(--accent1);padding:10px 16px;border-radius:12px;color:#061022;font-weight:700;border:none}
+    a.link{color:inherit;text-decoration:none}
+    .pill{display:inline-block;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.03);font-size:13px}
+
+    /* theme: light (toggle) */
+    .light{--bg:#f6fbff;color-scheme:light;color:#0b1220}
+    .light .card{background:white;border:1px solid rgba(11,18,32,0.04)}
+    .light .logo{box-shadow:none}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">MS</div>
+        <div>
+          <div style="font-weight:700">Mooie Snelle Pagina</div>
+          <div style="font-size:13px;color:var(--muted)">Een elegante single-file starter</div>
+        </div>
+      </div>
+      <nav>
+        <button class="btn" onclick="document.body.classList.toggle('light')">Toggle thema</button>
+        <a class="btn btn-primary" href="#demo">Bekijk demo</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <h1>Een snelle, mooie HTML-startpagina</h1>
+        <p class="lead">Klaar om te gebruiken: responsive layout, subtiele animaties, thema-toggle en herbruikbare componenten — allemaal in één bestand.</p>
+
+        <div class="feature-list">
+          <div class="feature">
+            <h4>Responsive</h4>
+            <p>Past zich vloeiend aan telefoons, tablets en desktops aan.</p>
+          </div>
+          <div class="feature">
+            <h4>Snel</h4>
+            <p>Minimale CSS en geen externe scripts behalve lettertype — laadt razendsnel.</p>
+          </div>
+          <div class="feature">
+            <h4>Modern</h4>
+            <p>Glassy cards, gradient-accenten en scherpe typografie.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:18px;display:flex;gap:12px">
+          <button class="btn-primary" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Start demo</button>
+          <a class="btn" href="#" onclick="copyHTML(event)">Kopieer HTML</a>
+        </div>
+      </div>
+
+      <aside class="card card-aside">
+        <div class="preview">
+          <div class="big">Voorbeeld</div>
+          <small>Gebruik de knop &quot;Kopieer HTML&quot; om deze pagina snel te dupliceren.</small>
+        </div>
+
+        <div style="display:flex;gap:8px;margin-top:12px;align-items:center;justify-content:space-between">
+          <div class="pill">v1.0</div>
+          <div style="font-size:13px;color:var(--muted)">Gemaakt: snel en simpel</div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="demo" class="card" style="margin-bottom:18px">
+      <h2 style="margin-top:0">Demo-sectie</h2>
+      <p class="lead">Hier kun je extra content toevoegen: team, contactformulier of een productgrid. Onderstaand voorbeeld toont een klein grid met kaartjes.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px">
+        <div class="feature card">
+          <h4>Kaartje 1</h4>
+          <p>Compact en informatief — ideaal voor features.</p>
+        </div>
+        <div class="feature card">
+          <h4>Kaartje 2</h4>
+          <p>Gebruik iconen of afbeeldingen om visueel te versterken.</p>
+        </div>
+        <div class="feature card">
+          <h4>Kaartje 3</h4>
+          <p>Voor prijzen, opsommingen of korte bio's.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>&copy; " + new Date().getFullYear() + " — Jouw naam</div>
+      <div>Gemaakt met ❤️ — kopieer en personaliseer</div>
+    </footer>
+  </div>
+
+  <script>
+    // copy full HTML to clipboard
+    function copyHTML(e){
+      e.preventDefault();
+      const html = `<!doctype html>\n${document.documentElement.outerHTML}`;
+      navigator.clipboard.writeText(html).then(()=>{
+        alert('HTML gekopieerd naar klembord – plak in een .html bestand.');
+      }).catch(()=>{
+        alert('Kopiëren niet gelukt. Selecteer alles en kopieer handmatig.');
+      });
+    }
+
+    // small enhancement: show a quick fade-in
+    document.documentElement.style.opacity = 0;
+    document.addEventListener('DOMContentLoaded', ()=>{
+      document.documentElement.style.transition = 'opacity 360ms ease-out';
+      document.documentElement.style.opacity = 1;
+    });
+  </script>
+</body>
+</html>
